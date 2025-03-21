@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #000a0a;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Home Page</h1>
+    </header>
+    
+    <footer>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<main>
+    <form action="javascript:void(0);" method="POST" class="mt-4 p-4 bg-light rounded shadow-sm" style="max-width: 400px; margin: 2rem auto; border: 1px solid #ddd;" id="loginForm">
+        <h2 class="text-center mb-4" style="color: #333;">User login</h2>
+        <div class="form-group mb-3" style="margin-bottom: 1.5rem;">
+            <label for="username" class="form-label" style="color: #555;">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="form-group mb-4" style="margin-bottom: 2rem;"></div>
+            <label for="password" class="form-label" style="color: #555;">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+       <div></div><div>
+        <div style="margin-top: 1rem;">
+            <button type="submit" class="btn btn-success w-100" style="background-color: green; font-size: 1rem; padding: 0.5rem;">submit</button>
+        </div></div>
+        </div>
+    </form>
+
+    <table id="userTable" border="1" style="width: 80%; margin: 2rem auto; border-collapse: collapse; text-align: left;">
+        <thead>
+            <tr>
+                <th style="padding: 8px; background-color: #f4f4f4;">Username</th>
+                <th style="padding: 8px; background-color: #f4f4f4;">Password</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const table = document.getElementById('userTable').querySelector('tbody');
+            const newRow = table.insertRow();
+            const usernameCell = newRow.insertCell(0);
+            const passwordCell = newRow.insertCell(1);
+
+            usernameCell.textContent = username;
+            passwordCell.textContent = password;
+
+            // Clear form fields
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+    </script>
+</main>
